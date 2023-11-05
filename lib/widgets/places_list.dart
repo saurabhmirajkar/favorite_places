@@ -8,7 +8,6 @@ class PlacesList extends StatelessWidget {
   final List<Place> places;
 
   void _openDetailsPage(BuildContext context, Place placeItem) {
-    
     final route = MaterialPageRoute(builder: (_) {
       return PlaceDetails(place: placeItem);
     });
@@ -34,6 +33,10 @@ class PlacesList extends StatelessWidget {
       itemCount: places.length,
       itemBuilder: (context, index) {
         return ListTile(
+          leading: CircleAvatar(
+            radius: 26,
+            backgroundImage: FileImage(places[index].image),
+          ),
           onTap: () => _openDetailsPage(context, places[index]),
           title: Text(
             places[index].title,
